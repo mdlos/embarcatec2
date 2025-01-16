@@ -3,9 +3,9 @@
 #include "hardware/timer.h"
 
 //define o LED de saída
-#define GPIO_LED 13
-#define GPIO_LED 12
-#define GPIO_LED 11
+#define GPIO_LED_GREEN 13
+#define GPIO_LED_BLUE 12
+#define GPIO_LED_RED 11
 
 
 //define os pinos do teclado com as portas GPIO
