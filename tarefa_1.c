@@ -62,18 +62,22 @@ int main()
                 case 'A':
                     turn_on_led(1, 0, 0); // LED vermelho
                     sleep_ms(1000);
+                    turn_on_led(0, 0, 0); // Desligar
                     break;
                 case 'B':
                     turn_on_led(0, 1, 0); // LED verde
                     sleep_ms(1000);
+                    turn_on_led(0, 0, 0); // Desligar
                     break;
                 case 'C':
                     turn_on_led(0, 0, 1); // LED azul
                     sleep_ms(1000);
+                    turn_on_led(0, 0, 0); // Desligar
                     break;
                 case 'D':
                     turn_on_led(1, 1, 1); // Todos os LEDs
                     sleep_ms(1000);
+                    turn_on_led(0, 0, 0); // Desligar
                     break;
                 case '#':
                     tocar_buzzer(1000, 500); // Som de 1000 Hz por 500 ms
