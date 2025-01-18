@@ -1,94 +1,88 @@
 {
   "version": 1,
-  "author": "Márcio de Arruda Fonseca, José Vinicius Rodrigues Soares, Moises Amorim, Paola Fagundes",
+  "author": "Pedro Barros",
   "editor": "wokwi",
   "parts": [
     {
       "type": "board-pi-pico-w",
       "id": "pico",
-      "top": -262.45,
-      "left": -198.05,
+      "top": -281.65,
+      "left": 70.75,
       "attrs": { "builder": "pico-sdk" }
     },
-    {
-      "type": "wokwi-membrane-keypad",
-      "id": "keypad1",
-      "top": -616.4,
-      "left": -416.8,
-      "attrs": {}
-    },
+    { "type": "wokwi-membrane-keypad", "id": "keypad1", "top": -600, "left": -400, "attrs": {} },
     {
       "type": "wokwi-led",
       "id": "led1",
-      "top": -147.6,
-      "left": -341.8,
+      "top": -166.8,
+      "left": -284.2,
       "attrs": { "color": "green" }
     },
     {
       "type": "wokwi-led",
       "id": "led2",
-      "top": -99.6,
-      "left": -341.8,
+      "top": -109.2,
+      "left": -284.2,
       "attrs": { "color": "blue" }
     },
     {
       "type": "wokwi-led",
       "id": "led3",
-      "top": -51.6,
-      "left": -341.8,
+      "top": -61.2,
+      "left": -284.2,
       "attrs": { "color": "red" }
     },
     {
       "type": "wokwi-resistor",
       "id": "r1",
-      "top": -92.05,
-      "left": -297.6,
+      "top": -130.45,
+      "left": -211.2,
       "attrs": { "value": "1000" }
     },
     {
       "type": "wokwi-resistor",
       "id": "r2",
       "top": -72.85,
-      "left": -297.6,
+      "left": -211.2,
       "attrs": { "value": "1000" }
     },
     {
       "type": "wokwi-resistor",
       "id": "r3",
-      "top": -53.65,
-      "left": -297.6,
+      "top": -34.45,
+      "left": -211.2,
       "attrs": { "value": "1000" }
     },
     {
       "type": "wokwi-buzzer",
       "id": "bz1",
-      "top": -247.2,
-      "left": -75,
+      "top": -276,
+      "left": 184.2,
       "attrs": { "volume": "0.1" }
     }
   ],
   "connections": [
     [ "pico:GP0", "$serialMonitor:RX", "", [] ],
     [ "pico:GP1", "$serialMonitor:TX", "", [] ],
-    [ "r1:2", "pico:GP11", "red", [ "v0" ] ],
-    [ "r1:1", "led1:A", "red", [ "v0" ] ],
-    [ "pico:GP12", "r2:2", "red", [ "h-38.4", "v38.44" ] ],
-    [ "r2:1", "led2:A", "red", [ "v0" ] ],
-    [ "pico:GP13", "r3:2", "red", [ "h-28.8", "v48.04" ] ],
+    [ "r1:2", "pico:GP11", "green", [ "h181.2", "v-9.6", "h48" ] ],
+    [ "r1:1", "led1:A", "green", [ "v0" ] ],
+    [ "pico:GP12", "r2:2", "blue", [ "h-40", "v40" ] ],
+    [ "r2:1", "led2:A", "blue", [ "v0" ] ],
+    [ "pico:GP13", "r3:2", "red", [ "h-30", "v50" ] ],
     [ "r3:1", "led3:A", "red", [ "v0" ] ],
-    [ "led3:C", "led2:C", "black", [ "h-18.8", "v-48" ] ],
-    [ "pico:GND.4", "led3:C", "black", [ "v96.04", "h-153.6", "v-19.2" ] ],
-    [ "led1:C", "led2:C", "black", [ "h-18.8", "v48" ] ],
-    [ "keypad1:C4", "pico:GP1", "green", [ "v0" ] ],
-    [ "keypad1:C3", "pico:GP2", "green", [ "v0" ] ],
-    [ "keypad1:C2", "pico:GP3", "green", [ "v0" ] ],
+    [ "led3:C", "led2:C", "white", [ "h-20", "v-50" ] ],
+    [ "pico:GND.4", "led3:C", "white", [ "v96.04", "h-364.8", "v-19.2" ] ],
+    [ "led1:C", "led2:C", "white", [ "h-20", "v50" ] ],
+    [ "keypad1:C4", "pico:GP1", "red", [ "v0" ] ],
+    [ "keypad1:C3", "pico:GP2", "blue", [ "v0" ] ],
+    [ "keypad1:C2", "pico:GP3", "yellow", [ "v0" ] ],
     [ "keypad1:C1", "pico:GP4", "green", [ "v0" ] ],
-    [ "keypad1:R4", "pico:GP5", "green", [ "v0" ] ],
-    [ "keypad1:R3", "pico:GP6", "green", [ "v0" ] ],
-    [ "keypad1:R2", "pico:GP7", "green", [ "v0" ] ],
+    [ "keypad1:R4", "pico:GP5", "red", [ "v0" ] ],
+    [ "keypad1:R3", "pico:GP6", "blue", [ "v0" ] ],
+    [ "keypad1:R2", "pico:GP7", "yellow", [ "v0" ] ],
     [ "keypad1:R1", "pico:GP8", "green", [ "v0" ] ],
-    [ "bz1:1", "pico:GND.6", "green", [ "v0" ] ],
-    [ "bz1:2", "pico:GP21", "green", [ "v0" ] ]
+    [ "bz1:1", "pico:GND.6", "black", [ "v0" ] ],
+    [ "bz1:2", "pico:GP21", "red", [ "v0" ] ]
   ],
   "dependencies": {}
 }

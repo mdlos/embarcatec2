@@ -1,5 +1,5 @@
 [wokwi]
 version = 1
-firmware = 'build/tarefa_1.uf2'
-elf = 'build/tarefa_1.elf'
+firmware = 'build\TAREFA-EMBARCATECH.uf2'
+elf = 'build\TAREFA-EMBARCATECH.elf'
 gdbServerPort=3333

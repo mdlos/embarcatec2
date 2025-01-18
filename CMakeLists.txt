@@ -28,37 +28,36 @@ set(PICO_BOARD pico_w CACHE STRING "Board type")
 # Pull in Raspberry Pi Pico SDK (must be before project)
 include(pico_sdk_import.cmake)
 
-project(tarefa_1 C CXX ASM)
+project(TAREFA-EMBARCATECH C CXX ASM)
 
 # Initialise the Raspberry Pi Pico SDK
 pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(tarefa_1 tarefa_1.c )
+add_executable(TAREFA-EMBARCATECH TAREFA-EMBARCATECH.c )
 
-pico_set_program_name(tarefa_1 "tarefa_1")
-pico_set_program_version(tarefa_1 "0.1")
+pico_set_program_name(TAREFA-EMBARCATECH "TAREFA-EMBARCATECH")
+pico_set_program_version(TAREFA-EMBARCATECH "0.1")
 
 # Modify the below lines to enable/disable output over UART/USB
-pico_enable_stdio_uart(tarefa_1 0)
-pico_enable_stdio_usb(tarefa_1 1)
+pico_enable_stdio_uart(TAREFA-EMBARCATECH 0)
+pico_enable_stdio_usb(TAREFA-EMBARCATECH 1)
 
 # Add the standard library to the build
-target_link_libraries(tarefa_1
+target_link_libraries(TAREFA-EMBARCATECH
         pico_stdlib
-        hardware_timer
-        hardware_pwm)
+    )
 
 # Add the standard include files to the build
-target_include_directories(tarefa_1 PRIVATE
+target_include_directories(TAREFA-EMBARCATECH PRIVATE
   ${CMAKE_CURRENT_LIST_DIR}
 )
 
 # Add any user requested libraries
-target_link_libraries(tarefa_1 
+target_link_libraries(TAREFA-EMBARCATECH 
         
-        )
+    )
 
-pico_add_extra_outputs(tarefa_1)
+pico_add_extra_outputs(TAREFA-EMBARCATECH)
 
