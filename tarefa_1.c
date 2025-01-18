@@ -1,3 +1,14 @@
+//Embarcatec 
+//Tarefa 1 - Atividade 2: 
+//Discentes: Márcio de Arruda Fonseca
+//           João Paulo
+//           Sara 
+//           Paola
+//           Pedro
+//           Jvrsoare
+//           Alexsami
+//           Moises Amorim
+
 #include <stdio.h>
 #include "pico/stdlib.h"
 #include "hardware/timer.h"
