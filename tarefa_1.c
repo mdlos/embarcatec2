@@ -39,8 +39,8 @@ void configurar_teclado();
 void turn_on_led(bool red, bool blue, bool green);
 void tocar_buzzer(int freq, int duration);
 void parar_buzzer();
-char leitura_teclado();
-void piscar_leds();
+char leitura_teclado(); 
+void piscar_leds(); // Função para piscar os LEDs
 
 int main() 
 {
@@ -79,7 +79,10 @@ int main()
                     tocar_buzzer(1000, 500); // Som de 1000 Hz por 500 ms
                     break;
                 case '*':
-                    piscar_leds(); // Função de piscar os LEDs
+                    tocar_buzzer(500, 1000); // Som de 500 Hz por 1 segundo
+                    break;
+                case '0':
+                    piscar_leds(); // Função para piscar os LEDs
                     break;
                 default:
                     turn_on_led(0, 0, 0); // Desliga os LEDs
@@ -93,7 +96,7 @@ int main()
     return 0;
 }
 
-// Configura os LEDs
+// Função para configurar os LEDs
 void configurar_leds() {
     gpio_init(PIN_LED_R);
     gpio_set_dir(PIN_LED_R, GPIO_OUT);
@@ -103,88 +106,92 @@ void configurar_leds() {
     gpio_set_dir(PIN_LED_G, GPIO_OUT);
 }
 
-// Configura o buzzer com PWM
+// Função para configurar o buzzer com PWM
 void configurar_buzzer() {
-    gpio_set_function(PIN_BUZZER, GPIO_FUNC_PWM);
-    uint slice_num = pwm_gpio_to_slice_num(PIN_BUZZER);
-    pwm_set_enabled(slice_num, true);
+    gpio_set_function(PIN_BUZZER, GPIO_FUNC_PWM); // Configura o pino do buzzer como saída PWM
+    uint slice_num = pwm_gpio_to_slice_num(PIN_BUZZER); // Obtém o slice do PWM associado ao pino
+    pwm_set_enabled(slice_num, true); // Habilita o PWM para o slice
 }
 
-// Toca o buzzer com frequência e duração especificadas
+// Função para tocar o buzzer com frequência e duração especificadas
 void tocar_buzzer(int freq, int duration) {
-    uint slice_num = pwm_gpio_to_slice_num(PIN_BUZZER);
-    uint clock_freq = 125000000;
-    uint16_t top = clock_freq / freq - 1;
+    uint slice_num = pwm_gpio_to_slice_num(PIN_BUZZER); // Obtém o slice do PWM associado ao pino
+    uint clock_freq = 125000000; // Frequência do clock do Pico (125 MHz)
+    uint16_t top = clock_freq / freq - 1; // Calcula o divisor para gerar a frequência desejada
 
-    pwm_set_wrap(slice_num, top);
-    pwm_set_gpio_level(PIN_BUZZER, top / 2);
-
-    sleep_ms(duration);
-    parar_buzzer();
+    pwm_set_wrap(slice_num, top); // Define o valor máximo do contador PWM
+    pwm_set_gpio_level(PIN_BUZZER, top / 2); // Define o duty cycle em 50% (meia onda)
+    
+    sleep_ms(duration); // Aguarda pelo tempo especificado
+    parar_buzzer(); // Para o buzzer após a duração
 }
 
-// Para o buzzer
+// Função para parar o buzzer
 void parar_buzzer() {
-    pwm_set_gpio_level(PIN_BUZZER, 0);
+    pwm_set_gpio_level(PIN_BUZZER, 0); // Define o nível PWM como 0 (som desligado)
 }
 
-// Configura o teclado matricial
+// Função para configurar o teclado
 void configurar_teclado() {
     for (int i = 0; i < 4; i++) {
         gpio_init(colunas[i]);
         gpio_set_dir(colunas[i], GPIO_OUT);
-        gpio_put(colunas[i], 1);
+        gpio_put(colunas[i], 1); // Inicializa as colunas com 1 (desligado)
     }
 
     for (int i = 0; i < 4; i++) {
         gpio_init(linhas[i]);
         gpio_set_dir(linhas[i], GPIO_IN);
-        gpio_pull_up(linhas[i]);
+        gpio_pull_up(linhas[i]); // Habilita pull-up para evitar leituras erradas
     }
 }
 
-// Lê a tecla pressionada
-char leitura_teclado() {
-    char tecla = 'n';
-
-    for (int coluna = 0; coluna < 4; coluna++) {
-        gpio_put(colunas[coluna], 0);
-
-        for (int linha = 0; linha < 4; linha++) {
-            if (gpio_get(linhas[linha]) == 0) {
-                tecla = teclado[3 - linha][coluna];
-                while (gpio_get(linhas[linha]) == 0) {
-                    sleep_ms(10);
-                }
-                break;
-            }
-        }
-
-        gpio_put(colunas[coluna], 1);
-
-        if (tecla != 'n') break;
-    }
-
-    return tecla;
-}
-
-// Pisca os LEDs sequencialmente
-void piscar_leds() {
-    for (int i = 0; i < 3; i++) {
-        turn_on_led(1, 0, 0);
-        sleep_ms(200);
-        turn_on_led(0, 1, 0);
-        sleep_ms(200);
-        turn_on_led(0, 0, 1);
-        sleep_ms(200);
-    }
-    turn_on_led(0, 0, 0);
-}
-
-// Acende os LEDs com as cores especificadas
+// Função para acionar os LEDs
 void turn_on_led(bool red, bool blue, bool green) {
     gpio_put(PIN_LED_R, red);
     gpio_put(PIN_LED_B, blue);
     gpio_put(PIN_LED_G, green);
 }
 
+// Função para ler o teclado
+char leitura_teclado() {
+    char tecla = 'n'; // Inicializa com 'n' (nenhuma tecla pressionada)
+
+    for (int coluna = 0; coluna < 4; coluna++) {
+        gpio_put(colunas[coluna], 0); // Ativa a coluna (coloca como 0)
+
+        for (int linha = 0; linha < 4; linha++) {
+            if (gpio_get(linhas[linha]) == 0) { // Se uma tecla foi pressionada
+                tecla = teclado[3 - linha][coluna]; // Mapeia a tecla pressionada
+                while (gpio_get(linhas[linha]) == 0) { // Espera a tecla ser liberada (debounce)
+                    sleep_ms(10); // Atraso para evitar múltiplas leituras
+                }
+                break;
+            }
+        }
+
+        gpio_put(colunas[coluna], 1); // Desativa a coluna (coloca como 1)
+
+        if (tecla != 'n') break; // Sai do laço se uma tecla foi pressionada
+    }
+
+    return tecla; // Retorna a tecla pressionada
+}
+
+// Função para piscar os LEDs
+void piscar_leds() {
+    turn_on_led(1, 0, 0); // Acende LED vermelho
+    sleep_ms(500); // Espera 500 ms
+    turn_on_led(0, 0, 0); // Desliga todos os LEDs
+    sleep_ms(500); // Espera 500 ms
+
+    turn_on_led(0, 1, 0); // Acende LED verde
+    sleep_ms(500); // Espera 500 ms
+    turn_on_led(0, 0, 0); // Desliga todos os LEDs
+    sleep_ms(500); // Espera 500 ms
+
+    turn_on_led(0, 0, 1); // Acende LED azul
+    sleep_ms(500); // Espera 500 ms
+    turn_on_led(0, 0, 0); // Desliga todos os LEDs
+    sleep_ms(500); // Espera 500 ms
+}
