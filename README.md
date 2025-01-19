@@ -50,6 +50,9 @@ Botões numéricos (1 a 9): Apaga o LED que estava aceso.
 3. Sequência de LEDs:
 Botão 0: Acende os LEDs RGB em sequência, um por vez.
 
+4. Toque de música no buzzer e acendimento de LEDs:
+Botão #: Toca a música "Brilha Brilha Estrelinha" no buzzer com acendimento de uma combinação LEDs a cada nota musical.
+
 👥 Contribuições:
 
 - Marcio: Responsável pela criação da branch "main.c" e inicialização do código.
@@ -57,7 +60,7 @@ Botão 0: Acende os LEDs RGB em sequência, um por vez.
 - Moises: Adicionou a funcionalidade de bip do buzzer para os botões * e #.
 - Sara e João: Implementaram a funcionalidade em que qualquer número de 1 a 9 apaga o LED que estava aceso.
 - Paola e Pedro: Implementaram a funcionalidade de acender os LEDs RGB em sequência ao pressionar o botão 0.
-
+- Alexsami: Implementou a funcionalidade de tocar a música "Brilha Brilha Estrelinha" no buzzer com acendimento de uma combinação LEDs a cada nota musical ao clicar em "#".
 
 ## 💻 Desenvolvedores
  
