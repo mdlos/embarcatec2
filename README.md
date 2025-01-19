@@ -44,7 +44,7 @@ Botão C: Acende o LED verde.
 Botão D: Acende todos os LEDs (vermelho, azul e verde).
 
 2. Controle de LEDs e Buzzer com Botões Específicos:
-Botões * e #: Emite um bip no buzzer.
+Botões * e #: Emite um bip no buzzer e em seguinda emite um alerta piscando os leds e bips curtos.
 Botões numéricos (1 a 9): Apaga o LED que estava aceso.
 
 3. Sequência de LEDs:

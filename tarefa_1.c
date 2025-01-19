@@ -40,8 +40,9 @@ void configurar_teclado();
 void turn_on_led(bool red, bool blue, bool green);
 void tocar_buzzer(int freq, int duration);
 void parar_buzzer();
+void pisca_alerta(int interacoes); // Função Pisca alerta: pisca os leds com bips curtos
 char leitura_teclado(); 
-void piscar_leds(float time, int repeticoes); // Função para piscar os LEDs
+void piscar_leds(); // Função para piscar os LEDs
 void turn_leds_sequence(int value);
 void tocar_brilha_brilha_com_leds(); //Toca musica Brilha Brilha e acende leds de acordo com a nota
 
@@ -83,9 +84,10 @@ int main()
                     break;
                 case '*':
                     tocar_buzzer(500, 1000); // Som de 500 Hz por 1 segundo
+                    pisca_alerta(3); // Pisca alerta pisca os leds com bips curtos
                     break;
                 case '0':
-                    piscar_leds(500, 1); // Função para piscar os LEDs
+                    piscar_leds(); // Função para piscar os LEDs
                     break;
                 case '1':
                     turn_leds_sequence(1);
@@ -145,11 +147,10 @@ void tocar_buzzer(int freq, int duration) {
     uint slice_num = pwm_gpio_to_slice_num(PIN_BUZZER); // Obtém o slice do PWM associado ao pino
     uint clock_freq = 125000000; // Frequência do clock do Pico (125 MHz)
     uint16_t top = clock_freq / freq - 1; // Calcula o divisor para gerar a frequência desejada
-    uint32_t durationLed = duration / 3; // Gerar um valor para o tempo de cada led
 
     pwm_set_wrap(slice_num, top); // Define o valor máximo do contador PWM
     pwm_set_gpio_level(PIN_BUZZER, top / 2); // Define o duty cycle em 50% (meia onda)
-    piscar_leds(durationLed, 3); //Piscar leds enquanto tiver som
+    
     sleep_ms(duration); // Aguarda pelo tempo especificado
     parar_buzzer(); // Para o buzzer após a duração
 }
@@ -234,27 +235,48 @@ char leitura_teclado() {
 }
 
 // Função para piscar os LEDs
-void piscar_leds(float time, int repeticoes) {
+void piscar_leds() {
+    turn_on_led(1, 0, 0); // Acende LED vermelho
+    sleep_ms(500); // Espera 500 ms
+    turn_on_led(0, 0, 0); // Desliga todos os LEDs
+    sleep_ms(500); // Espera 500 ms
+
+    turn_on_led(0, 1, 0); // Acende LED verde
+    sleep_ms(500); // Espera 500 ms
+    turn_on_led(0, 0, 0); // Desliga todos os LEDs
+    sleep_ms(500); // Espera 500 ms
+
+    turn_on_led(0, 0, 1); // Acende LED azul
+    sleep_ms(500); // Espera 500 ms
+    turn_on_led(0, 0, 0); // Desliga todos os LEDs
+    sleep_ms(500); // Espera 500 ms
+}
+
+// Função Pisca alerta: pisca os leds com bips curtos
+void pisca_alerta(int interacoes) {
     int i = 0;
 
-    while(i < repeticoes) {
-        turn_on_led(1, 0, 0); // Acende LED vermelho
-        sleep_ms(time); // Espera 500 ms
-        turn_on_led(0, 0, 0); // Desliga todos os LEDs
-        sleep_ms(time); // Espera 500 ms
-
-        turn_on_led(0, 1, 0); // Acende LED verde
-        sleep_ms(time); // Espera 500 ms
-        turn_on_led(0, 0, 0); // Desliga todos os LEDs
-        sleep_ms(time); // Espera 500 ms
-
-        turn_on_led(0, 0, 1); // Acende LED azul
-        sleep_ms(time); // Espera 500 ms
-        turn_on_led(0, 0, 0); // Desliga todos os LEDs
-        sleep_ms(time); // Espera 500 ms
+    while (i < interacoes){
+        tocar_buzzer(800, 100);
+        turn_on_led(0, 0, 1);
+        sleep_ms(100);
+        turn_on_led(0, 0, 0);
+        sleep_ms(100);
+        
+        tocar_buzzer(800, 100);
+        turn_on_led(0, 1, 0);
+        sleep_ms(100);
+        turn_on_led(0, 0, 0);
+        sleep_ms(100);
+    
+        tocar_buzzer(800, 100);
+        turn_on_led(1, 0, 0);
+        sleep_ms(100);
+        turn_on_led(0, 0, 0);
+        sleep_ms(100);
         i++;
     }
-    parar_buzzer(); // Para o buzzer após a duração
+
 }
 
 
