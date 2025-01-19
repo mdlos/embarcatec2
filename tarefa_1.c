@@ -42,6 +42,7 @@ void parar_buzzer();
 char leitura_teclado(); 
 void piscar_leds(); // Função para piscar os LEDs
 void turn_leds_sequence(int value);
+void tocar_brilha_brilha_com_leds(); //Toca musica Brilha Brilha e acende leds de acordo com a nota
 
 int main() 
 {
@@ -77,7 +78,7 @@ int main()
                     sleep_ms(1000);
                     break;
                 case '#':
-                    tocar_buzzer(1000, 500); // Som de 1000 Hz por 500 ms
+                    tocar_brilha_brilha_com_leds(); // Toca a musica Brilha Brilha
                     break;
                 case '*':
                     tocar_buzzer(500, 1000); // Som de 500 Hz por 1 segundo
@@ -247,3 +248,157 @@ void piscar_leds() {
     turn_on_led(0, 0, 0); // Desliga todos os LEDs
     sleep_ms(500); // Espera 500 ms
 }
+
+
+// Função principal para tocar "Brilha Brilha Estrelinha" com LEDs
+void tocar_brilha_brilha_com_leds() {
+    // Primeira linha: "Brilha, brilha, estrelinha"
+    turn_on_led(1, 0, 0); // LED vermelho
+    tocar_buzzer(392, 500); // Sol
+    turn_on_led(0, 0, 0); // Apagar LEDs
+    sleep_ms(250);
+
+    turn_on_led(1, 0, 0); // LED vermelho
+    tocar_buzzer(392, 500); // Sol
+    turn_on_led(0, 0, 0); // Apagar LEDs
+    sleep_ms(250);
+
+    turn_on_led(0, 1, 0); // LED verde
+    tocar_buzzer(440, 500); // Lá
+    turn_on_led(0, 0, 0); // Apagar LEDs
+    sleep_ms(250);
+
+    turn_on_led(0, 1, 0); // LED verde
+    tocar_buzzer(440, 500); // Lá
+    turn_on_led(0, 0, 0); // Apagar LEDs
+    sleep_ms(250);
+
+    turn_on_led(0, 0, 1); // LED azul
+    tocar_buzzer(494, 500); // Si
+    turn_on_led(0, 0, 0); // Apagar LEDs
+    sleep_ms(250);
+
+    turn_on_led(0, 0, 1); // LED azul
+    tocar_buzzer(494, 500); // Si
+    turn_on_led(0, 0, 0); // Apagar LEDs
+    sleep_ms(250);
+
+    turn_on_led(1, 0, 0); // LED vermelho
+    tocar_buzzer(440, 1000); // Lá
+    turn_on_led(0, 0, 0); // Apagar LEDs
+    sleep_ms(500);
+
+    // Segunda linha: "Como eu quero te ver brilhar"
+    turn_on_led(1, 0, 0); // LED vermelho
+    tocar_buzzer(392, 500); // Sol
+    turn_on_led(0, 0, 0); // Apagar LEDs
+    sleep_ms(250);
+
+    turn_on_led(1, 0, 0); // LED vermelho
+    tocar_buzzer(392, 500); // Sol
+    turn_on_led(0, 0, 0); // Apagar LEDs
+    sleep_ms(250);
+
+    turn_on_led(0, 1, 0); // LED verde
+    tocar_buzzer(349, 500); // Fá
+    turn_on_led(0, 0, 0); // Apagar LEDs
+    sleep_ms(250);
+
+    turn_on_led(0, 1, 0); // LED verde
+    tocar_buzzer(349, 500); // Fá
+    turn_on_led(0, 0, 0); // Apagar LEDs
+    sleep_ms(250);
+
+    turn_on_led(0, 0, 1); // LED azul
+    tocar_buzzer(330, 500); // Mi
+    turn_on_led(0, 0, 0); // Apagar LEDs
+    sleep_ms(250);
+
+    turn_on_led(0, 0, 1); // LED azul
+    tocar_buzzer(330, 500); // Mi
+    turn_on_led(0, 0, 0); // Apagar LEDs
+    sleep_ms(250);
+
+    turn_on_led(1, 0, 0); // LED vermelho
+    tocar_buzzer(294, 1000); // Ré
+    turn_on_led(0, 0, 0); // Apagar LEDs
+    sleep_ms(500);
+
+    // Terceira linha: "Brilha, brilha, estrelinha"
+    turn_on_led(1, 0, 0); // LED vermelho
+    tocar_buzzer(392, 500); // Sol
+    turn_on_led(0, 0, 0); // Apagar LEDs
+    sleep_ms(250);
+
+    turn_on_led(1, 0, 0); // LED vermelho
+    tocar_buzzer(392, 500); // Sol
+    turn_on_led(0, 0, 0); // Apagar LEDs
+    sleep_ms(250);
+
+    turn_on_led(0, 1, 0); // LED verde
+    tocar_buzzer(440, 500); // Lá
+    turn_on_led(0, 0, 0); // Apagar LEDs
+    sleep_ms(250);
+
+    turn_on_led(0, 1, 0); // LED verde
+    tocar_buzzer(440, 500); // Lá
+    turn_on_led(0, 0, 0); // Apagar LEDs
+    sleep_ms(250);
+
+    turn_on_led(0, 0, 1); // LED azul
+    tocar_buzzer(494, 500); // Si
+    turn_on_led(0, 0, 0); // Apagar LEDs
+    sleep_ms(250);
+
+    turn_on_led(0, 0, 1); // LED azul
+    tocar_buzzer(494, 500); // Si
+    turn_on_led(0, 0, 0); // Apagar LEDs
+    sleep_ms(250);
+
+    turn_on_led(1, 0, 0); // LED vermelho
+    tocar_buzzer(440, 1000); // Lá
+    turn_on_led(0, 0, 0); // Apagar LEDs
+    sleep_ms(500);
+
+    // Quarta linha: "Como eu quero te ver brilhar"
+    turn_on_led(1, 0, 0); // LED vermelho
+    tocar_buzzer(392, 500); // Sol
+    turn_on_led(0, 0, 0); // Apagar LEDs
+    sleep_ms(250);
+
+    turn_on_led(1, 0, 0); // LED vermelho
+    tocar_buzzer(392, 500); // Sol
+    turn_on_led(0, 0, 0); // Apagar LEDs
+    sleep_ms(250);
+
+    turn_on_led(0, 1, 0); // LED verde
+    tocar_buzzer(349, 500); // Fá
+    turn_on_led(0, 0, 0); // Apagar LEDs
+    sleep_ms(250);
+
+    turn_on_led(0, 1, 0); // LED verde
+    tocar_buzzer(349, 500); // Fá
+    turn_on_led(0, 0, 0); // Apagar LEDs
+    sleep_ms(250);
+
+    turn_on_led(0, 0, 1); // LED azul
+    tocar_buzzer(330, 500); // Mi
+    turn_on_led(0, 0, 0); // Apagar LEDs
+    sleep_ms(250);
+
+    turn_on_led(0, 0, 1); // LED azul
+    tocar_buzzer(330, 500); // Mi
+    turn_on_led(0, 0, 0); // Apagar LEDs
+    sleep_ms(250);
+
+    turn_on_led(1, 0, 0); // LED vermelho
+    tocar_buzzer(294, 1000); // Ré
+    turn_on_led(0, 0, 0); // Apagar LEDs
+    sleep_ms(500);
+}
+
+
+
+
+
+
