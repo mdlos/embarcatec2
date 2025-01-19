@@ -8,6 +8,7 @@
 //           Jvrsoare
 //           Alexsami
 //           Moises Amorim
+//           Ramom Silva
 
 #include <stdio.h>
 #include "pico/stdlib.h"
@@ -39,6 +40,7 @@ void configurar_teclado();
 void turn_on_led(bool red, bool blue, bool green);
 void tocar_buzzer(int freq, int duration);
 void parar_buzzer();
+void pisca_alerta(int interacoes); // Função Pisca alerta: pisca os leds com bips curtos
 char leitura_teclado(); 
 void piscar_leds(); // Função para piscar os LEDs
 void turn_leds_sequence(int value);
@@ -82,6 +84,7 @@ int main()
                     break;
                 case '*':
                     tocar_buzzer(500, 1000); // Som de 500 Hz por 1 segundo
+                    pisca_alerta(3); // Pisca alerta pisca os leds com bips curtos
                     break;
                 case '0':
                     piscar_leds(); // Função para piscar os LEDs
@@ -247,6 +250,33 @@ void piscar_leds() {
     sleep_ms(500); // Espera 500 ms
     turn_on_led(0, 0, 0); // Desliga todos os LEDs
     sleep_ms(500); // Espera 500 ms
+}
+
+// Função Pisca alerta: pisca os leds com bips curtos
+void pisca_alerta(int interacoes) {
+    int i = 0;
+
+    while (i < interacoes){
+        tocar_buzzer(800, 100);
+        turn_on_led(0, 0, 1);
+        sleep_ms(100);
+        turn_on_led(0, 0, 0);
+        sleep_ms(100);
+        
+        tocar_buzzer(800, 100);
+        turn_on_led(0, 1, 0);
+        sleep_ms(100);
+        turn_on_led(0, 0, 0);
+        sleep_ms(100);
+    
+        tocar_buzzer(800, 100);
+        turn_on_led(1, 0, 0);
+        sleep_ms(100);
+        turn_on_led(0, 0, 0);
+        sleep_ms(100);
+        i++;
+    }
+
 }
 
 
