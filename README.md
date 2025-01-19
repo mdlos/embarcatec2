@@ -24,10 +24,10 @@ Nesta prática, será necessário simular os seguintes componentes:
 
 ## 🗒️ Lista de requisitos
 
-• Deve-se utilizar o ambiente de desenvolvimento VS Code em todas as duas atividades; 
-• Os códigos devem ser escritos na linguagem C, juntamente com os recursos do kit de Desenvolvimento de Software Pico SDK; 
-• O simulador Wokwi deve estar integrado ao ambiente de desenvolvimento VS Code; 
-• Deve-se criar um repositório do github para o versionamento, registro e submissão dessa atividade.
+** Deve-se utilizar o ambiente de desenvolvimento VS Code em todas as duas atividades; 
+** Os códigos devem ser escritos na linguagem C, juntamente com os recursos do kit de Desenvolvimento de Software Pico SDK; 
+** O simulador Wokwi deve estar integrado ao ambiente de desenvolvimento VS Code; 
+** Deve-se criar um repositório do github para o versionamento, registro e submissão dessa atividade.
 
 ## 🛠 Tecnologias
 
