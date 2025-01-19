@@ -82,3 +82,4 @@ Botão #: Toca a música "Brilha Brilha Estrelinha" no buzzer com acendimento de
 
 ## 🎥 Demonstração: 
 - Para ver o funcionamento do projeto, acesse o vídeo de demonstração gravado por José Vinicius: https://youtu.be/qXF3vxX_nmM
+- Extras - Vídeo demostrando implementações extras: https://youtu.be/94Wgb6CxeaM
