@@ -77,5 +77,5 @@ Botão 0: Acende os LEDs RGB em sequência, um por vez.
 </table>
 
 
-🎥 Demonstração
-Para ver o funcionamento do projeto, acesse o vídeo de demonstração gravado por José Vinicius: https://youtu.be/qXF3vxX_nmM
+🎥 Demonstração: 
+- Para ver o funcionamento do projeto, acesse o vídeo de demonstração gravado por José Vinicius: https://youtu.be/qXF3vxX_nmM
