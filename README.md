@@ -35,6 +35,29 @@ Nesta prática, será necessário simular os seguintes componentes:
 2. **VScode**;
 3. **Linguagem C**;
 
+🔧 Funcionalidades Implementadas:
+
+1. Controle dos LEDs RGB via Teclado Matricial:
+Botão A: Acende o LED vermelho.
+Botão B: Acende o LED azul.
+Botão C: Acende o LED verde.
+Botão D: Acende todos os LEDs (vermelho, azul e verde).
+
+2. Controle de LEDs e Buzzer com Botões Específicos:
+Botões * e #: Emite um bip no buzzer.
+Botões numéricos (1 a 9): Apaga o LED que estava aceso.
+
+3. Sequência de LEDs:
+Botão 0: Acende os LEDs RGB em sequência, um por vez.
+
+👥 Contribuições:
+
+Marcio: Responsável pela criação da branch "main.c" e inicialização do código.
+José Vinicius: Programou o arquivo diagram.json para a simulação do acionamento dos LEDs, e ajustou o código "main.c" para os LEDs acenderem de acordo com os botões pressionados no teclado matricial.
+Moises: Adicionou a funcionalidade de bip do buzzer para os botões * e #.
+Sara e João: Implementaram a funcionalidade em que qualquer número de 1 a 9 apaga o LED que estava aceso.
+Paola e Pedro: Implementaram a funcionalidade de acender os LEDs RGB em sequência ao pressionar o botão 0.
+
 
 ## 💻 Desenvolvedores
  
@@ -54,3 +77,5 @@ Nesta prática, será necessário simular os seguintes componentes:
 </table>
 
 
+🎥 Demonstração
+Para ver o funcionamento do projeto, acesse o vídeo de demonstração gravado por José Vinicius: https://youtu.be/qXF3vxX_nmM
