@@ -41,6 +41,7 @@ void tocar_buzzer(int freq, int duration);
 void parar_buzzer();
 char leitura_teclado(); 
 void piscar_leds(); // Função para piscar os LEDs
+void turn_leds_sequence(int value);
 
 int main() 
 {
@@ -84,8 +85,32 @@ int main()
                 case '0':
                     piscar_leds(); // Função para piscar os LEDs
                     break;
-                default:
-                    turn_on_led(0, 0, 0); // Desliga os LEDs
+                case '1':
+                    turn_leds_sequence(1);
+                    break;
+                case '2':
+                    turn_leds_sequence(2);
+                    break;
+                case '3':
+                    turn_leds_sequence(3);
+                    break;    
+                case '4':
+                    turn_leds_sequence(4);
+                    break;
+                case '5':
+                    turn_leds_sequence(5);
+                    break;
+                case '6':
+                    turn_leds_sequence(6);
+                    break;
+                case '7':
+                    turn_leds_sequence(7);
+                    break;
+                case '8':
+                    turn_leds_sequence(8);
+                    break;
+                case '9':
+                    turn_leds_sequence(9);
                     break;
             }
         }
@@ -143,6 +168,33 @@ void configurar_teclado() {
         gpio_init(linhas[i]);
         gpio_set_dir(linhas[i], GPIO_IN);
         gpio_pull_up(linhas[i]); // Habilita pull-up para evitar leituras erradas
+    }
+}
+
+void turn_leds_sequence(int value){
+   while (value > 0) {
+        turn_on_led(0, 0, 1);
+        sleep_ms(200);
+        turn_on_led(0, 0, 0);
+        sleep_ms(200);
+        if(value == 1){
+            break;
+        }
+        turn_on_led(0, 1, 0);
+        sleep_ms(200);
+        turn_on_led(0, 0, 0);
+        sleep_ms(200);
+        if(value == 2){
+            break;
+        }
+        turn_on_led(1, 0, 0);
+        sleep_ms(200);
+        turn_on_led(0, 0, 0);
+        sleep_ms(200);
+        if(value == 3){
+            break;
+        }
+        value-=3;
     }
 }
 
