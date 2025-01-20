@@ -85,4 +85,4 @@ Botões de 1-9: Você acende os Leds em sequência de acordo com o número que c
 
 ## 🎥 Demonstração: 
 - Para ver o funcionamento do projeto, acesse o vídeo de demonstração gravado por José Vinicius: https://youtu.be/qXF3vxX_nmM
-- Extras - Vídeo demostrando implementações extras: https://youtu.be/94Wgb6CxeaM
+- Extras - Vídeo demostrando implementações extras: https://youtu.be/94Wgb6CxeaM e https://www.youtube.com/watch?v=e6fGmXp2o_4
