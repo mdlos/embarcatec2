@@ -58,7 +58,7 @@ Botão #: Toca a música "Brilha Brilha Estrelinha" no buzzer com acendimento de
 - Marcio: Responsável pela criação da branch "main.c" e inicialização do código.
 - José Vinicius: Programou o arquivo diagram.json para a simulação do acionamento dos LEDs, e ajustou o código "main.c" para os LEDs acenderem de acordo com os botões pressionados no teclado matricial.
 - Moises: Adicionou a funcionalidade de bip do buzzer para os botões * e #.
-- Sara e João: Implementaram a funcionalidade em que qualquer número de 1 a 9 apaga o LED que estava aceso.
+- Sara: Implementou a funcionalidade em que ao clicar em qualquer número de 1 a 9 ele acende o led a quantidade de vezes correspondente ao número.
 - Paola e Pedro: Implementaram a funcionalidade de acender os LEDs RGB em sequência ao pressionar o botão 0.
 - Alexsami: Implementou a funcionalidade de tocar a música "Brilha Brilha Estrelinha" no buzzer com acendimento de uma combinação LEDs a cada nota musical ao clicar em "#".
 
