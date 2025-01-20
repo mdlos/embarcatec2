@@ -6,13 +6,6 @@
   <img width=40% src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=02A6F4&style=for-the-badge"/>
 </div>
 
-<div align="center">
- <a href="#-objetivo-do-projeto"> Objetivo do Projeto</a> • 
-  <a href="#-lista-de-requisitos"> Requisitos</a> • 
- <a href="#-tecnologias"> Tecnologias</a> • 
- <a href="#-desenvolvedores"> Desenvolvedores</a>
-</div>
-
 ## Objetivo do Projeto
 
 Com o auxílio do simulador de eletrônica Wokwi, utilize um teclado matricial 4x4 (ilustrado na Figura 1) para controlar determinados pinos GPIO do microcontrolador RP2040, presente na placa de desenvolvimento Raspberry Pi Pico W. Para esta atividade, realize o acionamento de 03 LEDs (tipo RGB), juntamente com o controle do sinal sonoro de um buzzer. 
