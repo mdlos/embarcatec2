@@ -53,6 +53,9 @@ Botão 0: Acende os LEDs RGB em sequência, um por vez.
 4. Toque de música no buzzer e acendimento de LEDs:
 Botão #: Toca a música "Brilha Brilha Estrelinha" no buzzer com acendimento de uma combinação LEDs a cada nota musical.
 
+5. Determine a quantidade de vez que os leds iram acender:
+Botões de 1-9: Você acende os Leds em sequência de acordo com o número que clicar.
+
 ## 👥 Contribuições:
 
 - Marcio: Responsável pela criação da branch "main.c" e inicialização do código.
